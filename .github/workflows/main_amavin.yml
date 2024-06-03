@@ -29,9 +29,6 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-      
-      - name: Run collectstatic
-        run: python manage.py collectstatic
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
@@ -69,4 +66,4 @@ jobs:
         with:
           app-name: 'amavin'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_57F6575E0A164E81BCAF5C0D14885180 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_81C8D4122D07428FA84A49C8BA475F8B }}
