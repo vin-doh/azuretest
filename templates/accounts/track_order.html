@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <h4>Track Order</h4>
+
+    <!-- Progress Bar to visualize order status -->
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: {% if order.status == 'Order Received' %}25{% elif order.status == 'Order Confirmed' %}50{% elif order.status == 'On the way' %}75{% elif order.status == 'Delivered' %}100{% endif %}%" aria-valuenow="{% if order.status == 'Order Received' %}25{% elif order.status == 'Order Confirmed' %}50{% elif order.status == 'On the way' %}75{% elif order.status == 'Delivered' %}100{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <!-- Order Status Information -->
+    <div class="order-status">
+        <p>Order Status: {{ order.status }}</p>
+        <!-- You can add more details about the order status here if needed -->
+    </div>
+
+    <!-- Optional: Additional Information or Instructions -->
+    <!-- For example, you can display estimated delivery date, shipping carrier, etc. -->
+
+    <!-- Add a button to go back to the My Orders page -->
+    <a href="{% url 'my_orders' %}" class="btn btn-primary">Back to My Orders</a>
+</div>
+
+
+{% endblock %}
